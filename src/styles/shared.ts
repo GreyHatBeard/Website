@@ -78,7 +78,7 @@ export const SiteHeader = css`
   padding-bottom: 12px;
   color: #fff;
   /* background: color(var(--darkgrey) l(-5%)) no-repeat center center; */
-  background: ${darken('0.05', colors.darkgrey)} no-repeat center center;
+  background: #EE8C3A no-repeat center center;
   background-size: cover;
 `;
 
@@ -103,7 +103,8 @@ export const SiteHeaderStyles = css`
   z-index: 10;
   display: block;
   height: 80px;
-  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));
+  /*background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0));*/
+  background: #EE8C3A;
 
   :before {
     content: '';
@@ -138,7 +139,8 @@ export const SiteHeaderStyles = css`
 export const AuthorProfileImage = css`
   display: block;
   /* background: color(var(--lightgrey) l(+10%)); */
-  background: ${lighten('0.1', colors.lightgrey)};
+  /* background: ${lighten('0.1', colors.lightgrey)}; */
+  background: #EE8C3A
   border-radius: 100%;
   object-fit: cover;
   margin-right: 15px;

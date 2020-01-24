@@ -18,7 +18,6 @@ rm -rf .git && git init
 ```
 
 Edit website-config.ts with your website settings.
-Either disable subscribe or setup a mailchimp list and add the form action and hidden field input name.
 
 Now push to whatever repo you want!
 
@@ -29,7 +28,6 @@ Now push to whatever repo you want!
 - [x] tag page
 - [x] author page
 - [x] blog page
-  - [x] subscribe form - using [mailchimp](https://mailchimp.com)
   - [ ] full width images in markdown? - not sure if possible
   - [ ] multiple post authors
   - [ ] floating reading progress bar

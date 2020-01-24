@@ -13,7 +13,7 @@ const SiteFooter = css`
   padding-top: 20px;
   padding-bottom: 60px;
   color: #fff;
-  background: ${setLightness('0.0015', colors.darkgrey)};
+  background: #EE8C3A;
 `;
 
 const SiteFooterContent = css`
@@ -89,10 +89,6 @@ const Footer: React.FC = () => {
               Twitter
             </a>
           )}
-
-          <a href="https://ghost.org" target="_blank" rel="noopener noreferrer">
-            Ghost
-          </a>
 
           <a href="/rss.xml">RSS</a>
         </SiteFooterNav>

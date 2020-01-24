@@ -8,7 +8,6 @@ import { SocialLink } from '../../styles/shared';
 import config from '../../website-config';
 import Facebook from '../icons/facebook';
 import Twitter from '../icons/twitter';
-import SubscribeModal from '../subscribe/SubscribeOverlay';
 import SiteNavLogo from './SiteNavLogo';
 
 const HomeNavRaise = css`
@@ -95,36 +94,12 @@ const SocialLinks = styled.div`
   }
 `;
 
-const SubscribeButton = styled.a`
-  display: block;
-  padding: 4px 10px;
-  border: #fff 1px solid;
-  color: #fff;
-  font-size: 1.2rem;
-  line-height: 1em;
-  border-radius: 10px;
-  opacity: 0.8;
-
-  :hover {
-    text-decoration: none;
-    opacity: 1;
-    cursor: pointer;
-  }
-`;
-
 interface SiteNavProps {
   isHome?: boolean;
 }
 
 class SiteNav extends React.Component<SiteNavProps> {
-  subscribe = React.createRef<SubscribeModal>();
-
-  openModal = () => {
-    if (this.subscribe.current) {
-      this.subscribe.current.open();
-    }
-  };
-
+  
   render() {
     const { isHome = false } = this.props;
     return (
@@ -138,9 +113,6 @@ class SiteNav extends React.Component<SiteNavProps> {
             </li>
             <li role="menuitem">
               <Link to="/about">About</Link>
-            </li>
-            <li role="menuitem">
-              <Link to="/tags/getting-started/">Getting Started</Link>
             </li>
           </ul>
         </SiteNavLeft>
@@ -169,10 +141,6 @@ class SiteNav extends React.Component<SiteNavProps> {
               </a>
             )}
           </SocialLinks>
-          {config.showSubscribe && (
-            <SubscribeButton onClick={this.openModal}>Subscribe</SubscribeButton>
-          )}
-          {config.showSubscribe && <SubscribeModal ref={this.subscribe} />}
         </SiteNavRight>
       </nav>
     );
