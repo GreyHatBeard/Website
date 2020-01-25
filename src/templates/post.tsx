@@ -7,13 +7,11 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import { Helmet } from 'react-helmet';
 
-import AuthorCard from '../components/AuthorCard';
 import Footer from '../components/Footer';
 import SiteNav from '../components/header/SiteNav';
 import PostCard from '../components/PostCard';
 import PostContent from '../components/PostContent';
 import PostFullFooter from '../components/PostFullFooter';
-import PostFullFooterRight from '../components/PostFullFooterRight';
 import ReadNextCard from '../components/ReadNextCard';
 import Wrapper from '../components/Wrapper';
 import IndexLayout from '../layouts';
@@ -21,10 +19,19 @@ import { colors } from '../styles/colors';
 import { inner, outer, SiteHeader, SiteMain } from '../styles/shared';
 import config from '../website-config';
 
+import AudioPlayer from 'react-h5-audio-player';
+import 'react-h5-audio-player/lib/styles.css';
+
 const PostTemplate = css`
   .site-main {
     background: #fff;
     padding-bottom: 4vw;
+  }
+
+  .rhap_play-pause-button {
+    font-size: 40px;
+    width: 40px;
+    height: 50px;
   }
 `;
 
@@ -141,6 +148,7 @@ interface PageTemplateProps {
           };
         };
         tags: string[];
+        url: string;
         author: {
           id: string;
           bio: string;
@@ -191,6 +199,7 @@ export interface PageContext {
     date: string;
     draft?: boolean;
     tags: string[];
+    url: string;
     author: {
       id: string;
       bio: string;
@@ -295,7 +304,15 @@ const PageTemplate: React.FC<PageTemplateProps> = props => {
               )}
               <PostContent htmlAst={post.htmlAst} />
 
-
+              <div>
+              <AudioPlayer style={{
+                width: '400px',
+                marginLeft: 'auto',
+                marginRight: 'auto',
+                marginTop: '0',
+                marginBottom: '0'
+              }} src={post.frontmatter.url} />
+              </div>
               <PostFullFooter>
               </PostFullFooter>
             </article>
@@ -342,6 +359,7 @@ export const query = graphql`
         userDate: date(formatString: "D MMMM YYYY")
         date
         tags
+        url
         image {
           childImageSharp {
             fluid(maxWidth: 3720) {

@@ -1,5 +1,44 @@
 const path = require('path');
 
+const feedOptions = {
+  title: 'GreyHatBeard',
+  description: 'A Modern Workplace Podcast',
+  feed_url: 'https://www.greyhatbeard.com/podcast.xml',
+  site_url: 'https://www.greyhatbeard.com',
+  image_url: 'https://www.greyhatbeard.com/static/1753d4de8f66e35866f452ee7e84e901/647de/GreyHatBeard-large.png',
+  docs: 'http://www.greyhatbeard.com/rss/docs.html',
+  managingEditor: 'Kevin McDonnell',
+  webMaster: 'Kevin McDonnell',
+  copyright: '2020 GreyHatBeard',
+  language: 'en',
+  categories: ['Modern Workplace','Microsoft 365','Office 365'],
+  pubDate: 'Jan 24, 2020 04:00:00 GMT',
+  ttl: '60',
+  custom_namespaces: {
+    'itunes': 'http://www.itunes.com/dtds/podcast-1.0.dtd'
+  },
+  custom_elements: [
+    {'itunes:subtitle': 'A podcast about Microsoft Modern Workplace topics'},
+    {'itunes:author': 'Kevin McDonnell'},
+    {'itunes:summary': 'Al Eardley, Garry Trinder and Kevin McDonnell chat about the latest news and pick topics to discuss.'},
+    {'itunes:owner': [
+      {'itunes:name': 'Kevin Mconnell'},
+      {'itunes:email': 'kevin@mcd79.com'}
+    ]},
+    {'itunes:image': {
+      _attr: {
+        href: 'https://www.greyhatbeard.com/static/1753d4de8f66e35866f452ee7e84e901/647de/GreyHatBeard-large.png'
+      }
+    }},
+    {'itunes:category': [
+      {_attr: {
+        text: 'Technology'
+      }}
+    ]}
+  ]
+}
+
+
 module.exports = {
   siteMetadata: {
     title: 'GreyHatBeard',
@@ -78,6 +117,12 @@ module.exports = {
         sampleRate: 100,
         // Determines how often site speed tracking beacons will be sent
         siteSpeedSampleRate: 10,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-podcast-rss-feed`,
+      options: {
+          feedOptions
       },
     },
   ],
