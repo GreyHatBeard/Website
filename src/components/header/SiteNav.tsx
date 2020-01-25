@@ -146,7 +146,7 @@ class SiteNav extends React.Component<SiteNavProps> {
               
             )}
             <a
-              href="https://www.youtube.com/GreyHatBeard"
+              href="https://www.youtube.com/channel/UCCbalP0tGZ1kyD1A0GQeVDQ"
               title="YouTube"
               target="_blank"
               >
