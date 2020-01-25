@@ -59,6 +59,7 @@ exports.createPages = async ({ graphql, actions }) => {
             frontmatter {
               title
               tags
+              url
               date
               draft
               image {
