@@ -20,6 +20,10 @@ steps:
   displayName: 'npm install'
 
 - script: |
+    npm install -g gatsby-cli
+  displayName: 'install gatsby client'
+
+- script: |
     gatsby build
   displayName: 'gatsby build'
 
