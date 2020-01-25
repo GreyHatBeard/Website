@@ -9,6 +9,7 @@ import config from '../../website-config';
 import Facebook from '../icons/facebook';
 import Twitter from '../icons/twitter';
 import SiteNavLogo from './SiteNavLogo';
+import YouTube from '../icons/youtube';
 
 const HomeNavRaise = css`
   @media (min-width: 900px) {
@@ -112,6 +113,9 @@ class SiteNav extends React.Component<SiteNavProps> {
               <Link to="/">Home</Link>
             </li>
             <li role="menuitem">
+              <Link to="/rss.xml">Feed</Link>
+            </li>
+            <li role="menuitem">
               <Link to="/about">About</Link>
             </li>
           </ul>
@@ -139,7 +143,15 @@ class SiteNav extends React.Component<SiteNavProps> {
               >
                 <Twitter />
               </a>
+              
             )}
+            <a
+              href="https://www.youtube.com/channel/UCCbalP0tGZ1kyD1A0GQeVDQ"
+              title="YouTube"
+              target="_blank"
+              >
+                <YouTube />
+              </a>
           </SocialLinks>
         </SiteNavRight>
       </nav>

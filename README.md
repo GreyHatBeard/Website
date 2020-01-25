@@ -1,72 +1,54 @@
-# gatsby-casper
+# GreyHatBeard Podcast Site
+This is the code for generating the static GreyHatBeard site which is then hosted on Azure Storage as a static website and exposed via a CDN.
 
-Demo: https://gatsby-casper.netlify.com/  
-
-This is a static blog generator and starter gatsby repo. A port of [Casper](https://github.com/TryGhost/Casper) v2 a theme from [Ghost](https://ghost.org/) for [GatsbyJS](https://www.gatsbyjs.org/) using [TypeScript](https://www.typescriptlang.org/).
-
-## Getting Started
-Clone this repo.
-
+To get started, clone the repository and run:
 ```
-git clone https://github.com/scttcper/gatsby-casper.git --depth=1
+npm i
 ```
 
-Remove .git folder and setup a new one
+Install the Gatsby Client
+```
+npm install -g gatsby-cli
+```
 
+To run locally:
 ```
-rm -rf .git && git init
+gatsby develop
 ```
+
+To build into the public folder which can be copied to Azure Storage in the $web container:
+```
+gatsby build
+```
+
+To try the build version:
+```
+gatsby build & gatsby serve
+```
+
+# Code overview
+
+The site is written using [Gatsby JS](https://www.gatsbyjs.org/) and using the [Gatsby Casper theme](https://github.com/scttcper/gatsby-casper.git).
 
 Edit website-config.ts with your website settings.
 
-Now push to whatever repo you want!
+Shows are added as markdown files (.md) in the content folder with any required images in img. They should have the following metadata at the start:
 
-
-### Progress
-- [x] emotion / component styles
-- [x] home page
-- [x] tag page
-- [x] author page
-- [x] blog page
-  - [ ] full width images in markdown? - not sure if possible
-  - [ ] multiple post authors
-  - [ ] floating reading progress bar
-- [x] 404 page
-- [x] subscribe modal/overlay
-- [x] rss feed (on production build)
-- [x] polish ✨
-  - [x] meta tags
-  - [x] page titles
-  - [x] pagination
-
-### Deploy to Netlify
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/scttcper/gatsby-casper)
-
-## How to configure Google Analytics
-Edit `gatsby-config.js` and add your tracking ID
-
-
-```javascript
-{
-    resolve: `gatsby-plugin-google-analytics`,
-    options: {
-      // Here goes your tracking ID
-      trackingId: 'UA-XXXX-Y',
-      // Puts tracking script in the head instead of the body
-      head: true,
-      // IP anonymization for GDPR compliance
-      anonymize: true,
-      // Disable analytics for users with `Do Not Track` enabled
-      respectDNT: true,
-      // Avoids sending pageview hits from custom paths
-      exclude: ['/preview/**'],
-      // Specifies what percentage of users should be tracked
-      sampleRate: 100,
-      // Determines how often site speed tracking beacons will be sent
-      siteSpeedSampleRate: 10,
-    },
-  },
+```
+---
+title: "Show 1: Our first show"
+author: Another Author
+image: img/NewsIcon.png
+date: "2020-01-10T10:00:00.000Z"
+draft: false
+tags: 
+  - shows
+categories:
+  - 2020
+url: "https://www.greyhatbeard.com/podcasts/2020-01-10-show1.mp3"
+number: 1
+size: "53 min"
+---
 ```
 
 ## How to edit your site title and description
@@ -83,3 +65,11 @@ Edit `gatsby-config.js` section `siteMetadata`
 ## How to adjust pagination
 In `gatsby-node.js`, edit the `postsPerPage` constant. The default value is
 six posts per page.
+
+## Podcast feed
+The podcast feed is supplied by:
+https://github.com/miller-productions/gatsby-plugin-podcast-feed
+
+## Audio Player
+The audio player is supplied by:
+https://github.com/lhz516/react-h5-audio-player
