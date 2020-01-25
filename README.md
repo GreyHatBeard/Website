@@ -6,6 +6,11 @@ To get started, clone the repository and run:
 npm i
 ```
 
+Install the Gatsby Client
+```
+npm install -g gatsby-cli
+```
+
 To run locally:
 ```
 gatsby develop
