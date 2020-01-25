@@ -27,6 +27,12 @@ steps:
     gatsby build
   displayName: 'gatsby build'
 
+- task: CopyFiles@2
+  inputs:
+    Contents: '**'
+    TargetFolder: 'drop'
+    CleanTargetFolder: true
+
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
