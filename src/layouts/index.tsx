@@ -6,6 +6,12 @@ import Helmet from 'react-helmet';
 import { colors } from '../styles/colors';
 // @ts-ignore
 import favicon from '../../src/favicon.ico';
+import { ApplicationInsights } from '@microsoft/applicationinsights-web'
+
+const appInsights = new ApplicationInsights({ config: {
+  instrumentationKey: '2224125a-bde2-4cab-82bd-390e9f31c585'
+  /* ...Other Configuration Options... */
+} });
 
 interface IndexProps {
   className?: string;
@@ -480,6 +486,9 @@ const GlobalStyles = css`
 `;
 
 const IndexLayout: React.FC<IndexProps> = props => {
+  appInsights.loadAppInsights();
+appInsights.trackPageView(); // Manually call trackPageView to establish the current user/session/pageview
+
   return (
     <div className={props.className}>
       <Helmet>
