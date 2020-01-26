@@ -40,9 +40,9 @@ const About: React.FC = () => (
                 There's three of us.
               </p>
               <ul>
-                <li>The Grey - Kevin McDonnell</li>
-                <li>The Hat - Alan Eardley</li>
-                <li>The Beard - Garry Trinder</li>
+                <li>The Grey - <a href="https://twitter.com/kevmcdonk">Kevin McDonnell</a></li>
+                <li>The Hat - <a href="https://twitter.com/al_eardley">Alan Eardley</a></li>
+                <li>The Beard - <a href="https://twitter.com/garrytrinder">Garry Trinder</a></li>
               </ul>
               <p>
                 We pick a topic and find three different parts to talk about. Then we talk about what we've seen in the news.
