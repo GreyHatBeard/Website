@@ -5,7 +5,7 @@ const feedOptions = {
   description: 'A Modern Workplace Podcast',
   feed_url: 'https://www.greyhatbeard.com/podcast.xml',
   site_url: 'https://www.greyhatbeard.com',
-  image_url: 'https://www.greyhatbeard.com/GreyHatBeard-large.png',
+  image_url: 'https://www.greyhatbeard.com/static/1753d4de8f66e35866f452ee7e84e901/647de/GreyHatBeard-large.png',
   docs: 'http://www.greyhatbeard.com/rss/docs.html',
   managingEditor: 'Kevin McDonnell',
   webMaster: 'Kevin McDonnell',
@@ -27,10 +27,9 @@ const feedOptions = {
     ]},
     {'itunes:image': {
       _attr: {
-        href: 'https://www.greyhatbeard.com/GreyHatBeard-large.png'
+        href: 'https://www.greyhatbeard.com/static/1753d4de8f66e35866f452ee7e84e901/647de/GreyHatBeard-large.png'
       }
     }},
-    {'itunes:explicit': false},
     {'itunes:category': [
       {_attr: {
         text: 'Technology'
@@ -105,7 +104,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: 'UA-156922990-1',
+        trackingId: 'UA-XXXX-Y',
         // Puts tracking script in the head instead of the body
         head: true,
         // IP anonymization for GDPR compliance
