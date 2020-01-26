@@ -113,7 +113,7 @@ class SiteNav extends React.Component<SiteNavProps> {
               <Link to="/">Home</Link>
             </li>
             <li role="menuitem">
-              <Link to="/rss.xml">Feed</Link>
+              <a href="/rss.xml">Feed</a>
             </li>
             <li role="menuitem">
               <Link to="/about">About</Link>
