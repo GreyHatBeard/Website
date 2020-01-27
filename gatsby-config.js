@@ -5,7 +5,7 @@ const feedOptions = {
   description: 'A Modern Workplace Podcast',
   feed_url: 'https://www.greyhatbeard.com/podcast.xml',
   site_url: 'https://www.greyhatbeard.com',
-  image_url: 'https://www.greyhatbeard.com/static/1753d4de8f66e35866f452ee7e84e901/647de/GreyHatBeard-large.png',
+  image_url: 'https://www.greyhatbeard.com/GreyHatBeard-large.png',
   docs: 'http://www.greyhatbeard.com/rss/docs.html',
   managingEditor: 'Kevin McDonnell',
   webMaster: 'Kevin McDonnell',
@@ -27,7 +27,7 @@ const feedOptions = {
     ]},
     {'itunes:image': {
       _attr: {
-        href: 'https://www.greyhatbeard.com/static/1753d4de8f66e35866f452ee7e84e901/647de/GreyHatBeard-large.png'
+        href: 'https://www.greyhatbeard.com/GreyHatBeard-large.png'
       }
     }},
     {'itunes:category': [
