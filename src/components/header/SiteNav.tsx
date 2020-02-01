@@ -11,8 +11,9 @@ import Twitter from '../icons/twitter';
 import SiteNavLogo from './SiteNavLogo';
 import YouTube from '../icons/youtube';
 
+//TODO: Format this better on mobile
 const HomeNavRaise = css`
-  @media (min-width: 900px) {
+  @media (min-width: 100px) {
     position: relative;
     top: -70px;
   }
@@ -117,6 +118,9 @@ class SiteNav extends React.Component<SiteNavProps> {
             </li>
             <li role="menuitem">
               <Link to="/about">About</Link>
+            </li>
+            <li role="menuitem">
+              <Link to="/upcoming-shows">Upcoming Shows</Link>
             </li>
           </ul>
         </SiteNavLeft>
