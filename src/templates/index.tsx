@@ -1,6 +1,8 @@
 import { graphql } from 'gatsby';
+import { Link } from 'gatsby';
 import * as React from 'react';
 import { css } from '@emotion/core';
+import styled from '@emotion/styled';
 import Helmet from 'react-helmet';
 
 import Footer from '../components/Footer';
@@ -10,6 +12,8 @@ import Wrapper from '../components/Wrapper';
 import IndexLayout from '../layouts';
 import config from '../website-config';
 import Pagination from '../components/Pagination';
+import { colors } from '../styles/colors';
+
 
 import {
   inner,
@@ -23,6 +27,65 @@ import {
   SiteTitle,
 } from '../styles/shared';
 import { PageContext } from './post';
+
+const PostCardStyles = css`
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin: 0 20px 40px;
+  min-height: 300px;
+  background: #fff center center;
+  background-size: cover;
+  border-radius: 5px;
+  box-shadow: rgba(39, 44, 49, 0.06) 8px 14px 38px, rgba(39, 44, 49, 0.03) 1px 3px 8px;
+  transition: all 0.5s ease;
+
+  :hover {
+    box-shadow: rgba(39, 44, 49, 0.07) 8px 28px 50px, rgba(39, 44, 49, 0.04) 1px 6px 12px;
+    transition: all 0.4s ease;
+    transform: translate3D(0, -1px, 0) scale(1.02);
+  }
+`;
+
+const PostCardTitle = styled.h2`
+  margin-top: 0;
+`;
+
+const PostCardContent = styled.div`
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`;
+
+const PostCardTags = styled.span`
+  display: block;
+  margin-bottom: 4px;
+  color: ${colors.midgrey};
+  font-size: 1.2rem;
+  line-height: 1.15em;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+`;
+
+const PostCardExcerpt = styled.section`
+  font-family: Georgia, serif;
+`;
+
+
+const PostCardContentLink = css`
+  position: relative;
+  flex-grow: 1;
+  display: block;
+  padding: 25px 25px 0;
+  color: ${colors.darkgrey};
+
+  :hover {
+    text-decoration: none;
+  }
+`;
 
 const HomePosts = css`
   @media (min-width: 795px) {
@@ -145,8 +208,8 @@ const IndexPage: React.FC<IndexProps> = props => {
                     alt={config.title}
                   />
                 ) : (
-                  config.title
-                )}
+                    config.title
+                  )}
               </SiteTitle>
             </SiteHeaderContent>
             <SiteNav isHome />
@@ -155,6 +218,63 @@ const IndexPage: React.FC<IndexProps> = props => {
         <main id="site-main" css={[SiteMain, outer]}>
           <div css={inner}>
             <div css={[PostFeed, PostFeedRaise]}>
+
+              <article css={PostCardStyles} >
+                <div>
+                  <iframe src="https://open.spotify.com/embed-podcast/show/4zAHuWOq0jVqeFAYBoMFSv" width="100%" height="232" frameBorder="0" allowTransparency={true} allow="encrypted-media"></iframe>
+                </div>
+
+                <PostCardContent className="post-card-content">
+                  <a className="post-card-content-link" css={PostCardContentLink} href={"spotify:show:4zAHuWOq0jVqeFAYBoMFSv"}>
+                    <header className="post-card-header">
+                      <PostCardTags>Ways to listen</PostCardTags>
+                      <PostCardTitle>Spotify</PostCardTitle>
+                    </header>
+                    <PostCardExcerpt>
+                      <p>Listen to the show on Spotify</p>
+                    </PostCardExcerpt>
+                  </a>
+                </PostCardContent>
+              </article>
+              <article css={PostCardStyles} >
+                <div>
+                  <iframe src="//banners.itunes.apple.com/banner.html?partnerId=&aId=&bt=catalog&t=catalog_black&id=1496558142&c=gb&l=en-GB&w=300&h=250&store=podcast" frameBorder="0" style={{overflowX:"hidden",overflowY:"hidden",width:"320px",height:"232px",border:"0px"}}>
+                  </iframe>
+                </div>
+
+                <PostCardContent className="post-card-content">
+                  <a className="post-card-content-link" css={PostCardContentLink} href={"spotify:show:4zAHuWOq0jVqeFAYBoMFSv"}>
+                    <header className="post-card-header">
+                      <PostCardTags>Ways to listen</PostCardTags>
+                      <PostCardTitle>Apple Podcasts</PostCardTitle>
+                    </header>
+                    <PostCardExcerpt>
+                      <p>Listen to the show on Apple Podcasts</p>
+                    </PostCardExcerpt>
+                  </a>
+                </PostCardContent>
+              </article>
+
+              <article css={PostCardStyles} >
+                <div style={{height:"232px"}}>
+                <a style={{textAlign:"center"}} href='https://playmusic.app.goo.gl/?ibi=com.google.PlayMusic&amp;isi=691797987&amp;ius=googleplaymusic&amp;apn=com.google.android.music&amp;link=https://play.google.com/music/m/I4glq4uc7ffxy7552d3pukxel5q?t%3DGreyHatBeard%26pcampaignid%3DMKT-na-all-co-pr-mu-pod-16' rel='nofollow'>
+                  <img width='125px' style={{margin: "0",width: "auto", paddingTop: "30px"}} alt='Listen on Google Play Music' src='https://play.google.com/intl/en_us/badges-music/images/badges/en_badge_web_music.png'/>
+                  </a>
+                </div>
+
+                <PostCardContent className="post-card-content">
+                  <div></div>
+                  <a className="post-card-content-link" css={PostCardContentLink} href={"https://playmusic.app.goo.gl/?ibi=com.google.PlayMusic&amp;isi=691797987&amp;ius=googleplaymusic&amp;apn=com.google.android.music&amp;link=https://play.google.com/music/m/I4glq4uc7ffxy7552d3pukxel5q?t%3DGreyHatBeard%26pcampaignid%3DMKT-na-all-co-pr-mu-pod-16"}>
+                    <header className="post-card-header">
+                      <PostCardTags>Ways to listen</PostCardTags>
+                      <PostCardTitle>Google Play</PostCardTitle>
+                    </header>
+                    <PostCardExcerpt>
+                      <p>Listen to the show on Google Play</p>
+                    </PostCardExcerpt>
+                  </a>
+                </PostCardContent>
+              </article>
               {props.data.allMarkdownRemark.edges.map(post => {
                 // filter out drafts in production
                 return (
