@@ -43,16 +43,15 @@ const About: React.FC = () => (
               </p>
               <h3>Planned shows</h3>
               <ul>
-                <li>7 Feb 2020 - Problems with Dev Ops in a “non-agile” world</li>
-                <li>21 Feb 2020 - Etiquette of Office 365</li>
+                <li>20 Mar 2020 - Contributing to open source projects</li>
+                <li>03 Apr 2020 - Governance and the Power Platform</li>
+                <li>17 Apr 2020 - How you work and staying focused</li>
               </ul>
 
               <h3>Show ideas</h3>
               <p>These are some show ideas that might change slightly when we get to planning.</p>
               <ul>
-                <li>How you work and staying focused</li>
-                <li>Governance and the Power Platform</li>
-                <li>Contributing to open source projects</li>
+                <li>Here come the robots</li>
               </ul>
 
               <h3>Want to join us?</h3>
