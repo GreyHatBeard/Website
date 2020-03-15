@@ -122,6 +122,9 @@ class SiteNav extends React.Component<SiteNavProps> {
             <li role="menuitem">
               <Link to="/upcoming-shows">Upcoming Shows</Link>
             </li>
+            <li role="menuitem">
+              <a href="https://greyhatbeard.github.io/m365-etiquette/">Etiquette of Microsoft365</a>
+            </li>
           </ul>
         </SiteNavLeft>
         <SiteNavRight>
