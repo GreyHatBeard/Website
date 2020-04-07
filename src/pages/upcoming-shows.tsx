@@ -45,6 +45,7 @@ const About: React.FC = () => (
               <ul>
                 <li>03 Apr 2020 - Governance and the Power Platform</li>
                 <li>17 Apr 2020 - How you work and staying focused</li>
+                <li>1 May 2020 - I like that but can it look a bit less like SharePoint?</li>
               </ul>
 
               <h3>Show ideas</h3>
