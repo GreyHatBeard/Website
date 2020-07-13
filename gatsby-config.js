@@ -30,6 +30,7 @@ const feedOptions = {
         href: 'https://www.greyhatbeard.com/GreyHatBeard-large.png'
       }
     }},
+    {'itunes:explicit': false },
     {'itunes:category': [
       {_attr: {
         text: 'Technology'
