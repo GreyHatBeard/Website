@@ -3,7 +3,7 @@ const path = require('path');
 const feedOptions = {
   title: 'GreyHatBeard',
   description: 'A Modern Workplace Podcast',
-  feed_url: 'https://www.greyhatbeard.com/podcast.xml',
+  feed_url: 'https://www.greyhatbeard.com/rss.xml',
   site_url: 'https://www.greyhatbeard.com',
   image_url: 'https://www.greyhatbeard.com/GreyHatBeard-large.png',
   docs: 'http://www.greyhatbeard.com/rss/docs.html',
