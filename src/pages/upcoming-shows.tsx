@@ -43,14 +43,15 @@ const About: React.FC = () => (
               </p>
               <h3>Planned shows</h3>
               <ul>
-                <li>29 May 2020 - Book Club - we pick two book recommendations each</li>
-                <li>15 May 2020 - Here come the robots</li>
+                <li>8 Aug 2020 - Microsoft 365 Security Certification</li>
               </ul>
 
               <h3>Show ideas</h3>
               <p>These are some show ideas that might change slightly when we get to planning.</p>
               <ul>
                 <li>Saying No</li>
+                <li>Technical Debt</li>
+                <li>How to keep up with all the Microsoft 365 news?</li>
               </ul>
 
               <h3>Want to join us?</h3>
