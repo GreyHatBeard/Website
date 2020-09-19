@@ -238,11 +238,9 @@ const IndexPage: React.FC<IndexProps> = props => {
               </article>
               <article css={PostCardStyles} >
                 <div>
-                  <a 
-                  href="https://podcasts.apple.com/us/podcast/greyhatbeard/id1496558142?itsct=podcast_box&amp;itscg=30200" 
-                  style={{display: "inline-block",overflow: "hidden",border-radius:"13px",width: "250px",height: "83px"}}>
-                    <img src="https://tools.applemediaservices.com/api/badges/listen-on-apple-podcasts/badge/en-US?size=250x83&amp;releaseDate=1599328860&h=3362b7109dd434d32667e5ed01eda5ac" alt="Listen on Apple Podcasts" 
-                    style={{border-radius: "13px",width: "250px",height: "83px"}}></img></a>
+                  <a href={'https://podcasts.apple.com/us/podcast/greyhatbeard/id1496558142?itsct=podcast_box&amp;itscg=30200'} style={{ display: 'inline-block', overflow: 'hidden', borderRadius: '13px', width: '250px', height: '83px' }}>
+                    <img src="https://tools.applemediaservices.com/api/badges/listen-on-apple-podcasts/badge/en-US?size=250x83&amp;releaseDate=1599328860&h=3362b7109dd434d32667e5ed01eda5ac" alt="Listen on Apple Podcasts" style={{ borderRadius: '13px', width: '250px', height: '83px' }}/>
+                  </a>
                 </div>
 
                 <PostCardContent className="post-card-content">
