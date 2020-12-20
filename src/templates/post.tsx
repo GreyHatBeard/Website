@@ -214,6 +214,18 @@ export interface PageContext {
   };
 }
 
+export interface podcastEpisode {
+  description: string;
+  summary: string;
+  audio_url: string;
+  artwork_url: string;
+  id: string;
+  number: number;
+  published_at: string;
+  slug: string;
+  title: string;
+};
+
 const PageTemplate: React.FC<PageTemplateProps> = props => {
   const post = props.data.markdownRemark;
   let width = '';

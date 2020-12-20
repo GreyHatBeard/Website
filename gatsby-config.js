@@ -50,6 +50,13 @@ module.exports = {
     'MarkdownRemark.frontmatter.author': 'AuthorYaml',
   },
   plugins: [
+    {
+      resolve: 'gatsby-source-buzzsprout',
+      options: {
+        token: '1fa2b169fe5fd486d2d1369030df751e',
+        podcastId: '1455661',
+      },
+    },
     'gatsby-plugin-sitemap',
     'gatsby-plugin-sharp',
     {

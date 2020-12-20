@@ -50,7 +50,7 @@ const config: WebsiteConfig = {
   coverImage: 'img/microphone.jpg',
   logo: 'img/GreyHatBeardAvatars.png',
   lang: 'en',
-  siteUrl: 'https://gatsby-casper.netlify.com',
+  siteUrl: 'https://www.greyhatbeard.com/',
   facebook: 'https://www.facebook.com/greyhatbeard',
   twitter: 'https://twitter.com/greyhatbeard',
   googleSiteVerification: 'GoogleCode',

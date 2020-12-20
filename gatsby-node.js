@@ -1,13 +1,24 @@
 const path = require('path');
 const _ = require('lodash');
+const {
+  createRemoteFileNode,
+} = require('gatsby-source-filesystem');
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions;
+exports.onCreateNode = async ({ node,
+  getNode,
+  actions,
+  createNodeId,
+  getCache,
+  store,
+}) => {
+  const { createNode, createNodeField } = actions;
 
   // Sometimes, optional fields tend to get not picked up by the GraphQL
   // interpreter if not a single content uses it. Therefore, we're putting them
   // through `createNodeField` so that the fields still exist and GraphQL won't
   // trip up. An empty string is still required in replacement to `null`.
+  // eslint-disable-next-line default-case
+
   switch (node.internal.type) {
     case 'MarkdownRemark': {
       const { permalink, layout, primaryTag } = node.frontmatter;
@@ -38,6 +49,28 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
         name: 'primaryTag',
         value: primaryTag || '',
       });
+      break;
+    }
+    case 'BuzzsproutPodcastEpisode': {
+
+      if (node.artwork_url) {
+        cache = getCache();
+
+        const fileNode = await createRemoteFileNode({
+          // the url of the remote image to generate a node for
+          url: node.artwork_url,
+          store,
+          cache,
+          createNode,
+          createNodeId,
+          parentNodeId: node.id,
+        })
+        if (fileNode) {
+          node.remoteImage___NODE = fileNode.id;
+          // node.artwork___NODE = fileNode.id
+        }
+      }
+      break;
     }
   }
 };
@@ -47,6 +80,33 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const result = await graphql(`
     {
+      allBuzzsproutPodcastEpisode {
+        edges {
+          node {
+            id
+            slug
+            audio_url
+            artwork_url
+            remoteImage {
+              childImageSharp {
+                fluid(maxWidth: 3720) {
+                  aspectRatio
+                  base64
+                  sizes
+                  src
+                  srcSet
+                }
+              }
+            }
+            episode_number
+            published_at(formatString: "MMMM D, Y")
+            title
+            description
+            summary
+            tags
+          }
+        }
+      }
       allMarkdownRemark(
         limit: 2000
         sort: { fields: [frontmatter___date], order: ASC }
@@ -129,6 +189,7 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 
+  /*
   posts.forEach(({ node }, index) => {
     const { slug, layout } = node.fields;
     const prev = index === 0 ? null : posts[index - 1].node;
@@ -155,6 +216,7 @@ exports.createPages = async ({ graphql, actions }) => {
       },
     });
   });
+  */
 
   // Create tag pages
   const tagTemplate = path.resolve('./src/templates/tags.tsx');
@@ -183,6 +245,36 @@ exports.createPages = async ({ graphql, actions }) => {
       component: authorTemplate,
       context: {
         author: edge.node.id,
+      },
+    });
+  });
+
+  // Create buzzsprout post pages
+  const buzzsproutPosts = result.data.allBuzzsproutPodcastEpisode.edges;
+  console.log('Posts: ' + buzzsproutPosts.length);
+  buzzsproutPosts.forEach(({ node }, index) => {
+    const { slug, layout } = node;
+    const prev = index === 0 ? null : buzzsproutPosts[index - 1].node;
+    const next = index === buzzsproutPosts.length - 1 ? null : buzzsproutPosts[index + 1].node;
+
+    createPage({
+      path: slug,
+      // This will automatically resolve the template to a corresponding
+      // `layout` frontmatter in the Markdown.
+      //
+      // Feel free to set any `layout` as you'd like in the frontmatter, as
+      // long as the corresponding template file exists in src/templates.
+      // If no template is set, it will fall back to the default `post`
+      // template.
+      //
+      // Note that the template has to exist first, or else the build will fail.
+      component: path.resolve(`./src/templates/${layout || 'buzzsproutPost'}.tsx`),
+      context: {
+        // Data passed to context is available in page queries as GraphQL variables.
+        slug,
+        prev,
+        next,
+        primaryTag: node.tags ? node.tags[0] : '',
       },
     });
   });

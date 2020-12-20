@@ -4,6 +4,7 @@ import * as React from 'react';
 import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 import Helmet from 'react-helmet';
+import PostCardBuzzsprout from '../components/PostCardBuzzsprout';
 
 import Footer from '../components/Footer';
 import SiteNav from '../components/header/SiteNav';
@@ -276,6 +277,12 @@ const IndexPage: React.FC<IndexProps> = props => {
                   </a>
                 </PostCardContent>
               </article>
+              {props.data.allBuzzsproutPodcastEpisode.edges.map(post => {
+                return (
+                  <PostCardBuzzsprout key={post.node.id} post={post.node} />
+                );
+              })}
+
               {props.data.allMarkdownRemark.edges.map(post => {
                 // filter out drafts in production
                 return (
@@ -315,6 +322,29 @@ export const pageQuery = graphql`
         # Makes it trivial to update as your page's design changes.
         fluid(maxWidth: 2000) {
           ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    allBuzzsproutPodcastEpisode {
+      edges {
+        node {
+          id
+          slug
+          audio_url
+          artwork_url
+          remoteImage {
+            childImageSharp {
+              fluid(maxWidth: 3720) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+          episode_number
+          published_at(formatString: "MMMM D, Y")
+          title
+          description
+          summary
+          tags
         }
       }
     }

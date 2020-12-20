@@ -192,27 +192,25 @@ const ReadingTime = styled.span`
   text-transform: uppercase;
 `;
 
-export interface PostCardProps {
-  post: PageContext;
+export interface PostCardBuzzsproutProps {
+  post: any;
 }
 
-const PostCard: React.FC<PostCardProps> = ({ post }) => {
+const PostCardBuzzsprout: React.FC<PostCardBuzzsproutProps> = ({ post }) => {
   return (
     <article
-      className={`post-card ${post.remoteImage ? '' : 'no-image'}`}
+      className={`post-card ${post.artwork_url ? '' : 'no-image'}`}
       css={PostCardStyles}
     >
-      {post.remoteImage && (
+      {post.artwork_url && (
         <Link className="post-card-image-link" css={PostCardImageLink} to={post.slug}>
           <PostCardImage className="post-card-image">
-            {post.remoteImage &&
-              post.remoteImage.childImageSharp &&
-              post.remoteImage.childImageSharp.fluid && (
+            {post.artwork_url && (
               <Img
-                alt={`${post.title} cover image`}
-                style={{ height: '100%' }}
-                fluid={post.remoteImage.childImageSharp.fluid}
-              />
+              alt={`${post.title} cover image`}
+              style={{ height: '100%'}}
+              fluid={post.remoteImage.childImageSharp.fluid}
+            />
             )}
           </PostCardImage>
         </Link>
@@ -224,7 +222,7 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
             <PostCardTitle>{post.title}</PostCardTitle>
           </header>
           <PostCardExcerpt>
-            <p>{post.excerpt}</p>
+          <p>{post.summary}</p>
           </PostCardExcerpt>
         </Link>
         <PostCardMeta className="post-card-meta">
@@ -234,4 +232,4 @@ const PostCard: React.FC<PostCardProps> = ({ post }) => {
   );
 };
 
-export default PostCard;
+export default PostCardBuzzsprout;
