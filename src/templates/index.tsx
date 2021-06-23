@@ -259,7 +259,7 @@ const IndexPage: React.FC<IndexProps> = props => {
 
               <article css={PostCardStyles} >
                 <div style={{height:"232px"}}>
-                <a style={{textAlign:"center"}} href='https://playmusic.app.goo.gl/?ibi=com.google.PlayMusic&amp;isi=691797987&amp;ius=googleplaymusic&amp;apn=com.google.android.music&amp;link=https://play.google.com/music/m/I4glq4uc7ffxy7552d3pukxel5q?t%3DGreyHatBeard%26pcampaignid%3DMKT-na-all-co-pr-mu-pod-16' rel='nofollow'>
+                <a style={{textAlign:"center"}} href='https://podcasts.google.com/feed/aHR0cHM6Ly93d3cuZ3JleWhhdGJlYXJkLmNvbS9yc3MueG1s?sa=X&ved=0CAMQ9sEGahcKEwjg89ef2K3xAhUAAAAAHQAAAAAQBQ' rel='nofollow'>
                   <img width='125px' style={{margin: "0",width: "auto", paddingTop: "30px"}} alt='Listen on Google Play Music' src='https://play.google.com/intl/en_us/badges-music/images/badges/en_badge_web_music.png'/>
                   </a>
                 </div>
