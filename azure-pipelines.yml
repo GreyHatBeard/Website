@@ -6,6 +6,13 @@
 trigger:
 - master
 
+schedules:
+- cron: "0 7 * * *"
+  displayName: Daily seven build
+  branches:
+    include:
+    - main
+
 pool:
   vmImage: 'ubuntu-latest'
 #  vmImage: 'windows-latest'
