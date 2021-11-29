@@ -28,7 +28,7 @@ steps:
   displayName: 'npm install'
 
 - script: |
-    npm install -g gatsby-cli
+    npm install -g gatsby-cli@3.14.2
   displayName: 'install gatsby client'
 
 - script: |
