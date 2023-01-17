@@ -1,6 +1,8 @@
 # GreyHatBeard Podcast Site
 This is the code for generating the static GreyHatBeard site which is then hosted on Azure Storage as a static website and exposed via a CDN.
 
+Check out the show at https://www.greyhatbeard.com.
+
 To get started, clone the repository and run:
 ```
 npm i
